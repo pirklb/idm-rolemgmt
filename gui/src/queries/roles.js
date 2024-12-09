@@ -1,7 +1,8 @@
 import backendAxios from "./_axios";
 export async function getRoles(search, cn) {
-    console.log('getRoles', search, cn);
-    const { data } = await backendAxios.get(`${import.meta.env.VITE_IDM_URL}/roles?q=${search}&owner=${cn}`);
+    const url = `${import.meta.env.VITE_IDM_URL}/roles?q=${search}&owner=${cn}`
+    console.log('getRoles', search, cn, url);
+    const { data } = await backendAxios.get(url);
     console.dir(data);
     return data;
 }

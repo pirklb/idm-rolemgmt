@@ -3,11 +3,11 @@ import RoleList from '../components/RoleList'
 import { getRoles } from '../queries/roles'
 import { useAppContext } from '../context'
 const Roles = () => {
-  const { search } = useAppContext();
+  const { search,user } = useAppContext();
   const [roles, setRoles] = useState([]);
   const fetchData = async (search) => {
     if (!search) return;
-    const data = await getRoles(searchStr);
+    const data = await getRoles(search, user?.cn);
     setRoles(data);
   }
   useEffect(() => {
